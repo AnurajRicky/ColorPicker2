@@ -208,18 +208,23 @@
 	
 	.close-picker {
 		position:absolute;
-		top:-1em;
-		right:-1em;
-		background:fadeout(#000,15%);
-		box-shadow:0 0 0 2px #FFF, 0 0 1em 0 fadeout(#000,50%);
-		border-radius:1.5em;
+		top: -.7em;
+		right: -.7em;
+		background:fadeout(#000,65%);
+		box-shadow:0 0 0 1px #FFF, 0 0 0 2px fadeout(#000, 85%);
+		border-radius:.25em;
 		color:#FFF;
-		line-height:1.5em;
-		font-size:12px;
+		line-height:.9em;
+		font-size:1.2em;
 		z-index:5;
-		width:1.5em;
-		height:1.5em;
+		width:1em;
+		height:1em;
 		text-align:center;
+		cursor:pointer;
+		
+		&:hover {
+			background:@accent;
+		}
 	}
 	
 	.divider {

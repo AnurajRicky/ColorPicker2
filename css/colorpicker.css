@@ -208,18 +208,22 @@
 }
 .color-picker .close-picker {
   position: absolute;
-  top: -1em;
-  right: -1em;
-  background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0 0 0 2px #ffffff, 0 0 1em 0 rgba(0, 0, 0, 0.5);
-  border-radius: 1.5em;
+  top: -0.7em;
+  right: -0.7em;
+  background: rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 1px #ffffff, 0 0 0 2px rgba(0, 0, 0, 0.15000000000000002);
+  border-radius: .25em;
   color: #FFF;
-  line-height: 1.5em;
-  font-size: 12px;
+  line-height: .9em;
+  font-size: 1.2em;
   z-index: 5;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
   text-align: center;
+  cursor: pointer;
+}
+.color-picker .close-picker:hover {
+  background: #66ccff;
 }
 .color-picker .divider {
   border-top: 1px solid #000000;

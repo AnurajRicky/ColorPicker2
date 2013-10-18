@@ -166,6 +166,9 @@
 			$picker.find('.color-cue').css({backgroundColor:setHex,color:colorText});
 			$picker.find('.color-cue-name').text('custom');
 			$('.picker-preview-name').text('custom');
+			if(e.which == 13) {
+				$('.close-picker').click();
+			}
 		})
 		.on('click', function(e){
 			e.preventDefault();
