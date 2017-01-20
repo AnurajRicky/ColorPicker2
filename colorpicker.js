@@ -24,6 +24,7 @@
 				defaultColor: colors[25].info[0].color,
 				defaultColorName: colors[25].name,
 				swatchInputName: 'c',
+				allowHexInput: true,
 				darkChecked: '',
 				mediumChecked: ' checked="checked"',
 				lightChecked: ' checked="checked"',
@@ -42,13 +43,13 @@
 	Templates.picker = [
 			'<input type="checkbox" id="{{pickerID}}-toggle" class="toggle toggle-picker" />',
 			
-			'<label for="{{pickerID}}-toggle" class="color-button-group">',
+			'<label for="{{pickerID}}-toggle" class="color-button-group {{noHexInput}}">',
 				'<span class="color-box color-cue"></span>',
 				'<span class="color-cue-name">{{currentColorName}}</span>',
 				'<input type="text" class="color-picker-input" maxlength="7" name="{{inputID}}" id="{{inputID}}" value="{{currentColor}}" />',
 			'</label>',
 			
-			'<div class="color-chips">',
+			'<div class="color-chips {{noHexInput}}">',
 				
 				'<input type="checkbox" id="{{pickerID}}-toggle-dark" class="toggle toggle-lum toggle-dark" {{darkChecked}} />',
 				'<label for="{{pickerID}}-toggle-dark" class="handle">{{darkLabel}}</label>',
@@ -63,7 +64,7 @@
 					'{{swatches}}',
 				'</ul>',
 				
-				'<ul class="divider">',
+				'<ul class="divider hex-control">',
 					'<li class="previewer">',
 						'<input type="radio" name="{{swatchInputName}}" class="color-custom" value="custom" {{customChecked}} />',
 						'<input type="text" id="{{pickerID}}-custom" class="color-cue color-picker-input" maxlength="7" value="{{currentColor}}" />',
@@ -80,7 +81,7 @@
 	Templates.swatch = [
 			'<li class="{{luminance}}">',
 				'<input type="radio" name="{{swatchInputName}}" id="{{pickerID}}-{{cleanHex}}" data-colorname="{{colorName}}" value="{{color}}"{{checked}} />',
-				'<label for="{{pickerID}}-{{cleanHex}}" class="color-box" data-title="{{colorName}} ({{color}})" style="background-color:{{color}};">',
+				'<label for="{{pickerID}}-{{cleanHex}}" class="color-box" data-title="{{colorName}}: {{color}}" style="background-color:{{color}};">',
 					'<span>{{colorName}}</span>',
 				'</label>',
 			'</li>'
@@ -112,6 +113,7 @@
 		}
 	}
 	
+	var noHexInput = settings.allowHexInput ? '' : 'no-hex-input';
 	
 	picker.innerHTML = Templates.picker
 		.replace(/{{pickerID}}/g, pickerID)
@@ -128,6 +130,7 @@
 		.replace(/{{mediumLabel}}/g, settings.mediumLabel)
 		.replace(/{{lightLabel}}/g, settings.lightLabel)
 		
+		.replace(/{{noHexInput}}/g, noHexInput)
 		.replace(/{{swatches}}/g, _swatches)
 		.replace(/{{swatchInputName}}/g, settings.swatchInputName)
 		;
